@@ -78,6 +78,36 @@ s = 25in/s
   
 ---
 
+---
+***EJEMPLO 2***
+
+* Un eje está viajando a una velocidad de 10 cm/s. En t=5 s empieza a disminuir la velocidad como se ve en el perfil. Cual es la posición del eje cuando se detiene? Asuma que empieza a desacelerar a 25 cm
+
+![Image](https://github.com/user-attachments/assets/3bdf018d-65af-43e5-90c7-cfedbd7703bd)
+
+***Fig 3. Encontrar la posiciòn y aceleraciòn***
+
+***SOLUCION***
+
+* La pendiente de la velocidad es la aceleración como se muestra en la siguiente ecuacion:
+
+```
+$a=\frac{-10cm/s * (1m/100cm)}{15s - 5s}$
+
+$a=\frac{-0.1m/s}{10s}$
+
+$a=\frac{-0.1m/s}{10s^2}$
+```
+
+* El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
+
+```
+s = ½(10*5)
+s = 25in/s
+```
+  
+---
+
 Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
 
 # 4. Tipos de Perfiles de Movimiento
