@@ -36,6 +36,8 @@ Cuando se tiene una función de aceleración en el tiempo, se puede calcular ind
 
 La interpretación gráfica de estos conceptos también es esencial: el **área bajo la curva de velocidad** en una gráfica representa el **desplazamiento total**; mientras que la **pendiente de la curva de velocidad** en un punto dado indica el valor de la **aceleración en ese instante**.
 
+![Image](https://github.com/user-attachments/assets/4bf5b949-b4a1-4dd7-a591-54e74619cd19)
+
 # 3. Principios Geométricos y Ecuaciones de Movimiento
 
 En el diseño y análisis de perfiles de movimiento, existen ciertos principios geométricos que deben respetarse para asegurar un comportamiento mecánico coherente y predecible. Entre estos principios se destaca que el área bajo la curva de velocidad siempre representa el desplazamiento neto de un sistema en un intervalo de tiempo determinado. Asimismo, la aceleración se puede visualizar como la pendiente de la curva de velocidad en una gráfica velocidad-tiempo, lo cual facilita su interpretación visual.
