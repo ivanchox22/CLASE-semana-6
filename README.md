@@ -38,7 +38,7 @@ La interpretación gráfica de estos conceptos también es esencial: el **área 
 
 ![Image](https://github.com/user-attachments/assets/4bf5b949-b4a1-4dd7-a591-54e74619cd19)
 
-####Fig 1. Grafica posicion, velocidad y aceleraciòn
+***Fig 1. Grafica posicion, velocidad y aceleraciòn***
 
 # 3. Principios Geométricos y Ecuaciones de Movimiento
 
