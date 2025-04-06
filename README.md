@@ -172,15 +172,64 @@ En muchas aplicaciones modernas, los sistemas requieren desplazamientos que no p
 
 Este tipo de movimiento es ampliamente utilizado en maquinaria CNC, robots industriales, impresoras 3D y sistemas de automatización avanzada.
 
-# 6. Aplicaciones Prácticas en Simulación
+# 6. EJEMPLOS ADICIONALES
 
-Durante el desarrollo de la clase, se utilizaron herramientas de **Simscape** para diseñar y simular diferentes tipos de perfiles de movimiento. Los estudiantes experimentaron con la creación de perfiles trapezoidales y en S, ajustando parámetros como la aceleración, la duración de cada fase del movimiento y las condiciones iniciales y finales del sistema. También se trabajó en la coordinación de múltiples ejes para generar trayectorias más complejas, lo cual permitió evaluar el comportamiento cinemático en tiempo real y detectar posibles errores de configuración.
+---
+***EJEMPLO***
 
-Estas simulaciones son esenciales para validar el diseño antes de llevarlo a un entorno físico, ya que permiten prever comportamientos dinámicos, identificar puntos de fallo y optimizar el rendimiento general del sistema.
+* Encuentre a posicion y la aceleraciòn en t= 5s, para esto tener en cuenta la figura 2.
 
-# 8. Ejercicio
+![Image](https://github.com/user-attachments/assets/33e490ef-ed86-473f-98a7-3875390ef21c)
 
-# 8. Conclusiones
+***Fig 2. Encontrar la posiciòn y aceleraciòn***
+
+***SOLUCION***
+
+* La aceleración sería la pendiente de la velocidad como se muestra en la siguiente ecuacion:
+
+```
+a = 10/5
+a = 2in/s^2
+```
+
+* El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
+
+```
+s = ½(10*5)
+s = 25in/s
+```
+  
+---
+
+---
+***EJEMPLO 2***
+
+* Un eje está viajando a una velocidad de 10 cm/s. En t=5 s empieza a disminuir la velocidad como se ve en el perfil. Cual es la posición del eje cuando se detiene? Asuma que empieza a desacelerar a 25 cm
+
+![Image](https://github.com/user-attachments/assets/3bdf018d-65af-43e5-90c7-cfedbd7703bd)
+
+***Fig 3. Encontrar la posiciòn y aceleraciòn***
+
+***SOLUCION***
+
+* La pendiente de la velocidad es la aceleración como se muestra en la siguiente ecuacion:
+
+$a=\frac{-10cm/s * (1m/100cm)}{15s - 5s}$
+
+$a=\frac{-0.1m/s}{10s}$
+
+$a=\frac{-0.1m/s}{10s^2}$
+
+* El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
+
+```
+s = ½(15s-5s)*0.1m/s = 0.5m
+
+```
+  
+---
+
+# 7. Conclusiones
 
 El análisis y diseño de perfiles de movimiento representa una competencia clave dentro del campo de la ingeniería mecatrónica, ya que permite comprender cómo se desplazan, aceleran y detienen los sistemas automatizados en diversas condiciones. Más allá de una simple representación gráfica, los perfiles de movimiento constituyen herramientas esenciales para garantizar la seguridad operativa, la precisión funcional y la eficiencia energética de los mecanismos en movimiento.
 
