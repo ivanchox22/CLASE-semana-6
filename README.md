@@ -51,6 +51,17 @@ v = v₀ + a(t - t₀)
 s = s₀ + ½(t - t₀)(v₀ + a(t - t₀))
 ```
 
+```
+*EJEMPLO*
+
+* Encuentre a posicion y la aceleraciòn en t= 5s, para esto tener en cuenta la figura 2.
+
+![Image](https://github.com/user-attachments/assets/33e490ef-ed86-473f-98a7-3875390ef21c)
+
+***Fig 2. Encontrar la posiciòn y aceleraciòn***
+
+```
+
 Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
 
 # 4. Tipos de Perfiles de Movimiento
