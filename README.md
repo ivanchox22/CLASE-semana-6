@@ -60,7 +60,22 @@ s = s₀ + ½(t - t₀)(v₀ + a(t - t₀))
 
 ***Fig 2. Encontrar la posiciòn y aceleraciòn***
 
+***SOLUCION***
 
+* La aceleración sería la pendiente de la velocidad como se muestra en la siguiente ecuacion:
+
+```
+a = 10/5
+a = 2in/s^2
+```
+
+* El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
+
+```
+s = ½(10*5)
+s = 25in/s
+```
+  
 ---
 
 Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
