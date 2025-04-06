@@ -51,6 +51,8 @@ v = v₀ + a(t - t₀)
 s = s₀ + ½(t - t₀)(v₀ + a(t - t₀))
 ```
 
+Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
+
 ---
 ***EJEMPLO***
 
@@ -105,8 +107,6 @@ s = ½(15s-5s)*0.1m/s = 0.5m
 ```
   
 ---
-
-Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
 
 # 4. Tipos de Perfiles de Movimiento
 
