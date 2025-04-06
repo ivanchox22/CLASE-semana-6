@@ -1,186 +1,110 @@
 # APUNTES SEMANA 6
 
-# Perfiles de Movimiento en Sistemas Mecánicos: Análisis Avanzado en Simscape
+# 1. Definición de Movimiento de Perfil
 
-## Introducción
+Un perfil de movimiento se define como la representación detallada del desplazamiento que realiza un sistema mecánico, o uno de sus componentes, desde un punto inicial (comúnmente denominado punto A) hasta un punto final (punto B). Esta representación incluye no solo la distancia recorrida, sino también cómo evolucionan en el tiempo los parámetros asociados al movimiento, tales como la posición, la velocidad y la aceleración. El diseño del perfil es crucial porque de él depende la eficiencia del sistema, la vida útil de los componentes mecánicos, y el cumplimiento de tareas específicas dentro de un proceso automatizado.
 
-En el ámbito del modelado y simulación de sistemas mecatrónicos, el diseño de perfiles de movimiento representa un componente esencial para la caracterización precisa del comportamiento dinámico de los sistemas. Durante esta sesión, se abordó detalladamente el diseño e implementación de perfiles de movimiento en el entorno de simulación **Simscape** de MATLAB/Simulink. Este entorno proporciona herramientas robustas para representar de manera virtual sistemas físicos mediante la conexión de componentes que simulan comportamiento mecánico, eléctrico, térmico, hidráulico, entre otros.
+Dependiendo del tipo de sistema y de la aplicación, el perfil de movimiento puede involucrar desde un solo eje de desplazamiento hasta múltiples ejes que actúan de manera simultánea y coordinada. En el caso de un solo eje en movimiento, el perfil resulta sencillo de analizar y controlar, ya que la trayectoria es lineal y las variaciones cinemáticas afectan a un único componente. Este tipo de perfil se conoce como **movimiento uniaxial**, y es ideal para aplicaciones básicas donde se requiere un desplazamiento simple y directo.
 
-El enfoque principal se centró en las distintas posibilidades de conexión entre los elementos del sistema, el análisis de su comportamiento dinámico y la configuración individual de cada eje. Asimismo, se profundizó en la creación de perfiles de movimiento para simular desplazamientos con efectores finales, contemplando factores como el rango de rotación, las condiciones límite, el dimensionamiento de los ejes, y las relaciones mecánicas asociadas.
+Por otro lado, existen escenarios más complejos en los cuales se deben controlar varios ejes al mismo tiempo para lograr desplazamientos en múltiples direcciones o seguir trayectorias específicas. Este tipo de desplazamiento se denomina **movimiento multiaxial**. En estos casos, la complejidad del perfil de movimiento aumenta considerablemente, ya que es necesario evaluar las variaciones simultáneas de posición, velocidad y aceleración en cada uno de los ejes involucrados. El correcto diseño de estos perfiles es vital para evitar colisiones, maximizar la precisión y garantizar un comportamiento fluido del sistema.
 
----
+# 2. Fundamentos de la Cinemática Aplicada al Movimiento
 
-## 1. Definición del Movimiento de Perfil
+Para entender cómo se generan y analizan los perfiles de movimiento, es imprescindible dominar los conceptos básicos de la **cinemática**, que es la rama de la mecánica que estudia el movimiento sin considerar las fuerzas que lo causan. En este contexto, los tres parámetros más importantes son: **la posición, la velocidad y la aceleración**, cada uno con un papel específico en la descripción del comportamiento dinámico de un sistema.
 
-Un **perfil de movimiento** puede definirse como la representación temporal del desplazamiento de un punto o efector final desde una posición inicial (punto A) hasta una posición final (punto B). Este desplazamiento se describe por medio de funciones de posición, velocidad y aceleración, las cuales están asociadas a una o más coordenadas de movimiento, ya sean lineales o rotacionales.
+**La posición** \( x(t) \) representa la localización de un punto específico del sistema (como el extremo de un brazo robótico o el centro de masa de una plataforma móvil) en función del tiempo. Es el parámetro más intuitivo y fundamental, ya que define "dónde" se encuentra el sistema en cada instante.
 
-### Clasificación por número de ejes
+**La velocidad** se define como la derivada de la posición con respecto al tiempo, es decir, indica la rapidez con la que cambia la posición en un intervalo temporal dado. Matemáticamente, se expresa como:
 
-- 🔹 **Caso 1: Movimiento de un solo eje**
+```
+v(τ) = dχ / dτ
+```
 
-  Se refiere al caso más simple donde un único eje realiza el desplazamiento. Este tipo de perfil genera una trayectoria unidimensional, generalmente rectilínea, y su análisis es directo desde el punto de vista cinemático.
+Donde \( χ \) representa la posición y \( τ \) el tiempo. La velocidad permite calcular la distancia total recorrida a lo largo del tiempo integrando su valor:
 
-- 🔹 **Caso 2: Movimiento multieje**
+```
+s = ∫ v(τ) dτ
+```
 
-  Involucra el desplazamiento simultáneo de múltiples ejes para cumplir una tarea determinada. En este escenario, se requiere una sincronización precisa y un modelado avanzado para coordinar la posición, velocidad y aceleración de cada eje a lo largo del tiempo.
+**La aceleración** representa el cambio de la velocidad con respecto al tiempo y se expresa como:
 
----
+```
+a(τ) = dv / dτ
+```
 
-## 2. Fundamentos de Cinemática Aplicada a Perfiles de Movimiento
+Cuando se tiene una función de aceleración en el tiempo, se puede calcular indirectamente la posición integrando dos veces, primero para obtener la velocidad y luego para obtener la posición. Esto es muy útil en escenarios donde se controla directamente la aceleración, como en sistemas de control de motores.
 
-El análisis cinemático de un sistema en movimiento implica la evaluación de las siguientes magnitudes en función del tiempo:
+La interpretación gráfica de estos conceptos también es esencial: el **área bajo la curva de velocidad** en una gráfica representa el **desplazamiento total**; mientras que la **pendiente de la curva de velocidad** en un punto dado indica el valor de la **aceleración en ese instante**.
 
-### Funciones fundamentales
+# 3. Principios Geométricos y Ecuaciones de Movimiento
 
-- 📌 **Posición** \( x(t) \)  
-  Indica la ubicación espacial del efector o componente móvil respecto a un sistema de coordenadas definido.
+En el diseño y análisis de perfiles de movimiento, existen ciertos principios geométricos que deben respetarse para asegurar un comportamiento mecánico coherente y predecible. Entre estos principios se destaca que el área bajo la curva de velocidad siempre representa el desplazamiento neto de un sistema en un intervalo de tiempo determinado. Asimismo, la aceleración se puede visualizar como la pendiente de la curva de velocidad en una gráfica velocidad-tiempo, lo cual facilita su interpretación visual.
 
-- 📌 **Velocidad** \( v(t) = \frac{dx(t)}{dt} \)  
-  Representa la derivada temporal de la posición. Su análisis permite caracterizar el ritmo del desplazamiento, identificando segmentos de aceleración, velocidad constante y desaceleración.
+Las ecuaciones fundamentales que describen el movimiento en sistemas con aceleración constante son:
 
-- 📌 **Aceleración** \( a(t) = \frac{dv(t)}{dt} \)  
-  Es la segunda derivada de la posición con respecto al tiempo. Su control es crucial para evitar vibraciones no deseadas y minimizar el desgaste mecánico.
+```
+v = v₀ + a(t - t₀)
+s = s₀ + ½(t - t₀)(v₀ + a(t - t₀))
+```
 
-### Formulaciones en términos de integrales
+Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
 
-Las relaciones cinemáticas también pueden expresarse de forma integral:
+# 4. Tipos de Perfiles de Movimiento
 
-- \( s(t) = \int v(t) \, dt \)
-- \( v(t) = \int a(t) \, dt \)
+En la práctica, los sistemas mecatrónicos emplean diferentes tipos de perfiles de movimiento, dependiendo del tipo de tarea a ejecutar y del grado de suavidad o rapidez requerido. Entre los perfiles más comunes destacan el **perfil trapezoidal** y el **perfil en S**.
 
-Estas expresiones permiten calcular desplazamientos y velocidades acumuladas a partir de funciones conocidas.
+## Perfil Trapezoidal
 
----
+Este perfil recibe su nombre debido a la forma trapezoidal que adopta su gráfica de velocidad respecto al tiempo. Se compone de tres fases principales:
 
-## 3. Reglas Geométricas para el Diseño de Perfiles
+1. Una etapa de **aceleración constante**.
+2. Una etapa donde la **velocidad se mantiene constante**.
+3. Una etapa donde el sistema **desacelera de forma constante**.
 
-El desarrollo de perfiles de movimiento debe seguir principios geométricos y físicos básicos que garanticen coherencia en la simulación. Algunas consideraciones importantes son:
+Este tipo de perfil es bastante común en sistemas de control de motores paso a paso o servomotores debido a su simplicidad de implementación. Aunque no es el más suave desde el punto de vista dinámico, ofrece un buen equilibrio entre rapidez y control, lo que lo convierte en una opción eficiente para múltiples aplicaciones industriales.
 
-- 📌 La **posición** puede calcularse como el área bajo la curva de velocidad.
-- 📌 La **aceleración** corresponde a la pendiente (derivada) de la curva de velocidad.
+## Perfil en S
 
-### Ecuaciones cinemáticas comunes
+El perfil en S es una evolución del perfil trapezoidal, diseñado para minimizar los cambios bruscos en la aceleración, los cuales pueden generar vibraciones, esfuerzos mecánicos innecesarios o desgaste prematuro de componentes. Este perfil introduce transiciones suaves en la aceleración y la desaceleración mediante rampas progresivas, lo que da lugar a una curva con forma de "S" en la gráfica de velocidad.
 
-Las siguientes expresiones representan la evolución del movimiento bajo aceleración constante:
+Este tipo de perfil puede representarse mediante funciones polinómicas, siendo una expresión común:
 
-\[
-v = v_0 + a(t - t_0)
-\]
-\[
-s = s_0 + \frac{1}{2}(t - t_0)(v_0 + a(t - t_0))
-\]
+```
+v(t) = C₁t² + C₂t + C₃
+```
 
-Donde:
+Donde los coeficientes \( C₁, C₂ \) y \( C₃ \) se determinan a partir de las condiciones iniciales y finales del sistema. El perfil en S es ideal para aplicaciones que requieren movimientos muy suaves, como sistemas de transporte automatizado, robots colaborativos o máquinas de alta precisión.
 
-- \( t_0 \) = tiempo inicial del intervalo  
-- \( v_0 \) = velocidad inicial  
-- \( s_0 \) = posición inicial
+# 5. Movimiento Multieje Coordinado
 
-Estas ecuaciones son esenciales para simular trayectorias físicas en Simscape y ajustar tiempos de ciclo, longitudes de desplazamiento y aceleraciones máximas.
+En muchas aplicaciones modernas, los sistemas requieren desplazamientos que no pueden ser logrados con un solo eje en movimiento. Es aquí donde entra en juego el **movimiento multieje**, el cual consiste en la sincronización de dos o más ejes para ejecutar trayectorias complejas en el espacio tridimensional.
 
----
+## Tipos de Movimiento Multieje
 
-## 4. Tipos de Perfiles de Movimiento
+- **Movimiento Secuencial:** Cada eje realiza su desplazamiento de forma independiente y en un orden específico. Este tipo de movimiento es fácil de programar y controlar, aunque suele ser lento debido a la falta de simultaneidad.
 
-En el diseño de trayectorias para sistemas mecánicos y de automatización, es crucial seleccionar el tipo de perfil de movimiento que mejor se adapte a la tarea y a las restricciones dinámicas del sistema.
+- **Movimiento Coordinado:** Varios ejes se mueven al mismo tiempo siguiendo una trayectoria conjunta. Este tipo de movimiento permite una mayor eficiencia, ya que reduce el tiempo de ejecución y mejora la fluidez del desplazamiento.
 
-### 4.1 Perfil Trapezoidal
+- **Interpolación Multieje:** En este caso, el sistema calcula puntos intermedios a lo largo de una trayectoria deseada. Existen diferentes tipos de interpolación:
+  - **Lineal**, que sigue trayectorias rectas.
+  - **Circular**, usada en trayectorias curvadas.
+  - **Helicoidal**, que combina un movimiento circular con traslación.
+  - **Spline**, que utiliza curvas suaves polinómicas para trayectorias complejas.
 
-Es uno de los más usados debido a su simplicidad y eficiencia. Su forma característica en la gráfica de velocidad vs. tiempo es un trapecio.
+Este tipo de movimiento es ampliamente utilizado en maquinaria CNC, robots industriales, impresoras 3D y sistemas de automatización avanzada.
 
-#### Fases del perfil trapezoidal:
+# 6. Aplicaciones Prácticas en Simulación
 
-1. **Aceleración constante**:  
-   El sistema parte desde el reposo y aumenta su velocidad de forma uniforme hasta alcanzar un valor máximo.
+Durante el desarrollo de la clase, se utilizaron herramientas de **Simscape** para diseñar y simular diferentes tipos de perfiles de movimiento. Los estudiantes experimentaron con la creación de perfiles trapezoidales y en S, ajustando parámetros como la aceleración, la duración de cada fase del movimiento y las condiciones iniciales y finales del sistema. También se trabajó en la coordinación de múltiples ejes para generar trayectorias más complejas, lo cual permitió evaluar el comportamiento cinemático en tiempo real y detectar posibles errores de configuración.
 
-2. **Velocidad constante**:  
-   El movimiento se mantiene a velocidad máxima durante un tiempo determinado.
+Estas simulaciones son esenciales para validar el diseño antes de llevarlo a un entorno físico, ya que permiten prever comportamientos dinámicos, identificar puntos de fallo y optimizar el rendimiento general del sistema.
 
-3. **Desaceleración constante**:  
-   La velocidad disminuye uniformemente hasta llegar a cero o a una nueva posición objetivo.
+# Conclusiones
 
----
+El análisis y diseño de perfiles de movimiento representa una competencia clave dentro del campo de la ingeniería mecatrónica, ya que permite comprender cómo se desplazan, aceleran y detienen los sistemas automatizados en diversas condiciones. Más allá de una simple representación gráfica, los perfiles de movimiento constituyen herramientas esenciales para garantizar la seguridad operativa, la precisión funcional y la eficiencia energética de los mecanismos en movimiento.
 
-### 4.2 Perfil en S (Sigmoidal)
+A lo largo del estudio realizado, se evidenció que el dominio de conceptos como posición, velocidad y aceleración no solo permite describir matemáticamente un movimiento, sino también predecir su comportamiento ante cambios en las condiciones iniciales o en la configuración de los sistemas. Esto cobra especial importancia cuando se abordan perfiles complejos, como los de tipo multieje, donde la sincronización entre componentes se convierte en un factor crítico de éxito.
 
-Representa una evolución del perfil trapezoidal, con la ventaja de que minimiza los cambios bruscos de aceleración (jerk). La forma de la curva de posición se asemeja a una letra "S".
+Por otra parte, la simulación mediante herramientas como Simscape proporciona un entorno seguro, versátil y altamente visual para experimentar con diferentes configuraciones de movimiento, facilitando la identificación de errores, la optimización de trayectorias y la toma de decisiones de diseño. Esta capacidad de previsualización aporta un valor significativo al proceso de ingeniería, al reducir tiempos de prueba y aumentar la confianza en los resultados obtenidos.
 
-#### Características:
-
-- Reducción de vibraciones.
-- Menor impacto mecánico.
-- Mayor suavidad en la transición entre fases.
-
-#### Fases del perfil en S:
-
-1. Aceleración progresiva  
-2. Aceleración constante  
-3. Velocidad constante  
-4. Desaceleración constante  
-5. Desaceleración progresiva
-
-#### Modelo matemático:
-
-Se modela mediante una ecuación cuadrática:
-
-\[
-v(t) = C_1 t^2 + C_2 t + C_3
-\]
-
-Donde \( C_1 \), \( C_2 \) y \( C_3 \) son coeficientes determinados por las condiciones iniciales y finales del movimiento (condiciones de frontera).
-
----
-
-## 5. Movimiento Multi-Eje: Coordinación Avanzada
-
-Los sistemas mecánicos modernos requieren frecuentemente la coordinación simultánea de múltiples ejes de movimiento para ejecutar tareas complejas. Este tipo de movimiento es especialmente relevante en robótica, maquinaria CNC, automatización industrial y manipuladores cartesianos.
-
-### Tipos de movimiento multi-eje
-
-#### 🔸 Movimiento Secuencial
-- Cada eje se mueve de manera independiente.
-- Mayor simplicidad en programación.
-- Menor eficiencia operativa.
-
-#### 🔸 Movimiento Coordinado
-- Los ejes se mueven simultáneamente siguiendo una trayectoria planificada.
-- Requiere cálculos de interpolación y sincronización.
-- Optimiza tiempos de ciclo y reduce oscilaciones.
-
-#### 🔸 Interpolación Multieje
-
-- **Lineal**: movimiento simultáneo a lo largo de una línea recta.
-- **Circular**: genera trayectorias circulares mediante la coordinación de dos ejes.
-- **Helicoidal**: combina una trayectoria circular con desplazamiento lineal en otro eje.
-- **Spline (Curva suave)**: se utilizan curvas polinomiales para definir trayectorias complejas y suaves.
-
----
-
-## 6. Ejercicios Prácticos
-
-Durante la clase se propusieron ejercicios aplicados de diseño y simulación de perfiles de movimiento en Simscape, con énfasis en:
-
-- Generación de trayectorias personalizadas.
-- Análisis de perfiles de velocidad y aceleración.
-- Evaluación del rendimiento dinámico de sistemas multieje.
-- Simulación de efectores móviles con restricciones geométricas.
-
----
-
-## 7. Conclusiones
-
-El diseño y simulación de perfiles de movimiento en entornos virtuales como **Simscape** proporciona una herramienta poderosa para predecir el comportamiento dinámico de sistemas reales. La correcta implementación de estos perfiles permite:
-
-- 🔧 Optimizar la eficiencia energética y operacional del sistema.
-- 📉 Reducir el desgaste mecánico mediante el control adecuado de aceleraciones.
-- 🧠 Mejorar la precisión de posicionamiento y la respuesta dinámica del sistema.
-- 🤖 Permitir el control coordinado de múltiples ejes, posibilitando tareas de mayor complejidad.
-
-### Ventajas de los perfiles comunes:
-
-- **Perfil trapezoidal**: Ideal para aplicaciones donde se requiere rapidez con simplicidad de implementación.
-- **Perfil en S**: Óptimo para minimizar esfuerzos mecánicos y garantizar transiciones suaves.
-
-Finalmente, el entendimiento profundo de estos perfiles y su implementación en herramientas de simulación como Simscape constituye una base sólida para el desarrollo de sistemas mecatrónicos avanzados.
-
----
+Finalmente, este conocimiento no solo fortalece la formación académica, sino que habilita al estudiante para enfrentar retos del mundo real, desde la programación de trayectorias en robots industriales hasta el desarrollo de sistemas de automatización de alta precisión. Comprender y dominar los perfiles de movimiento es, en esencia, dar un paso firme hacia la innovación tecnológica con base en principios científicos y herramientas digitales de vanguardia.
