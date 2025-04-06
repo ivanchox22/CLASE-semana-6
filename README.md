@@ -99,7 +99,9 @@ Durante el desarrollo de la clase, se utilizaron herramientas de **Simscape** pa
 
 Estas simulaciones son esenciales para validar el diseño antes de llevarlo a un entorno físico, ya que permiten prever comportamientos dinámicos, identificar puntos de fallo y optimizar el rendimiento general del sistema.
 
-# Conclusiones
+# 8. Ejercicio
+
+# 8. Conclusiones
 
 El análisis y diseño de perfiles de movimiento representa una competencia clave dentro del campo de la ingeniería mecatrónica, ya que permite comprender cómo se desplazan, aceleran y detienen los sistemas automatizados en diversas condiciones. Más allá de una simple representación gráfica, los perfiles de movimiento constituyen herramientas esenciales para garantizar la seguridad operativa, la precisión funcional y la eficiencia energética de los mecanismos en movimiento.
 
