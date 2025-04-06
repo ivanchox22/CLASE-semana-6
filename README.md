@@ -52,9 +52,9 @@ s = s₀ + ½(t - t₀)(v₀ + a(t - t₀))
 ```
 
 ---
-*EJEMPLO*
+***EJEMPLO***
 
-*Encuentre a posicion y la aceleraciòn en t= 5s, para esto tener en cuenta la figura 2.
+* Encuentre a posicion y la aceleraciòn en t= 5s, para esto tener en cuenta la figura 2.
 
 ![Image](https://github.com/user-attachments/assets/33e490ef-ed86-473f-98a7-3875390ef21c)
 
