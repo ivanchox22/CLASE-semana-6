@@ -122,6 +122,26 @@ Este perfil recibe su nombre debido a la forma trapezoidal que adopta su gráfic
 
 Este tipo de perfil es bastante común en sistemas de control de motores paso a paso o servomotores debido a su simplicidad de implementación. Aunque no es el más suave desde el punto de vista dinámico, ofrece un buen equilibrio entre rapidez y control, lo que lo convierte en una opción eficiente para múltiples aplicaciones industriales.
 
+***PERFIL TRAPEZOIDAL***
+![image](https://github.com/user-attachments/assets/b782815d-90bc-4b90-a637-f116d8cbd46f)
+***Fig 4. Grafica de perfil trapezoidal***
+
+---
+***EJEMPLO 3***
+* El eje x de un robot Gantry debe moverse 10 cm. La máxima aceleración permitida en este eje es 1 cm/s^2. Si se desea mover el eje a una velocidad máxima de 2 cm/s, cuanto tiempo tomará hacer este movimiento
+
+![image](https://github.com/user-attachments/assets/d0a860f7-c048-40b7-97bb-086e54114acb)
+***Fig 5. ejemplo perfil trapezoidal***
+
+```
+Ta = Td = Vm/a = (2cm/s)/(1 cm/s^2) = 2s
+Tm = L/Vm - Ta = (10cm / 2cm/s) -2s = 3s
+
+```
+
+---
+
+
 ## Perfil en S
 
 El perfil en S es una evolución del perfil trapezoidal, diseñado para minimizar los cambios bruscos en la aceleración, los cuales pueden generar vibraciones, esfuerzos mecánicos innecesarios o desgaste prematuro de componentes. Este perfil introduce transiciones suaves en la aceleración y la desaceleración mediante rampas progresivas, lo que da lugar a una curva con forma de "S" en la gráfica de velocidad.
