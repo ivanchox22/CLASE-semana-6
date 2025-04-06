@@ -91,19 +91,17 @@ s = 25in/s
 
 * La pendiente de la velocidad es la aceleración como se muestra en la siguiente ecuacion:
 
-```
 $a=\frac{-10cm/s * (1m/100cm)}{15s - 5s}$
 
 $a=\frac{-0.1m/s}{10s}$
 
 $a=\frac{-0.1m/s}{10s^2}$
-```
 
 * El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
 
 ```
-s = ½(10*5)
-s = 25in/s
+s = ½(15s-5s)*0.1m/s = 0.5m
+
 ```
   
 ---
