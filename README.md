@@ -1,4 +1,4 @@
-# APUNTES SEMANA 6
+# APUNTES SEMANA 7
 
 # 1. Definición de Movimiento de Perfil
 
