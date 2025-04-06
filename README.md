@@ -177,26 +177,22 @@ Este tipo de movimiento es ampliamente utilizado en maquinaria CNC, robots indus
 ---
 ***EJEMPLO***
 
-* Encuentre a posicion y la aceleraciòn en t= 5s, para esto tener en cuenta la figura 2.
-
-![Image](https://github.com/user-attachments/assets/33e490ef-ed86-473f-98a7-3875390ef21c)
-
-***Fig 2. Encontrar la posiciòn y aceleraciòn***
+* Encuentre a posicion y la aceleraciòn en t= 6s
 
 ***SOLUCION***
 
 * La aceleración sería la pendiente de la velocidad como se muestra en la siguiente ecuacion:
 
 ```
-a = 10/5
+a = 12/6
 a = 2in/s^2
 ```
 
 * El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
 
 ```
-s = ½(10*5)
-s = 25in/s
+s = ½(12*6)
+s = 36in/s
 ```
   
 ---
@@ -204,26 +200,23 @@ s = 25in/s
 ---
 ***EJEMPLO 2***
 
-* Un eje está viajando a una velocidad de 10 cm/s. En t=5 s empieza a disminuir la velocidad como se ve en el perfil. Cual es la posición del eje cuando se detiene? Asuma que empieza a desacelerar a 25 cm
-
-![Image](https://github.com/user-attachments/assets/3bdf018d-65af-43e5-90c7-cfedbd7703bd)
-
-***Fig 3. Encontrar la posiciòn y aceleraciòn***
+* Un eje está viajando a una velocidad de 15 cm/s. En t=3 s empieza a disminuir la velocidad como se ve en el perfil.
+\
 
 ***SOLUCION***
 
 * La pendiente de la velocidad es la aceleración como se muestra en la siguiente ecuacion:
 
-$a=\frac{-10cm/s * (1m/100cm)}{15s - 5s}$
+$a=\frac{-15cm/s * (1m/100cm)}{9s - 3s}$
 
-$a=\frac{-0.1m/s}{10s}$
+$a=\frac{-0.15m/s}{6s}$
 
-$a=\frac{-0.1m/s}{10s^2}$
+a= -0.025m/s^2
 
-* El área bajo la curva de velocidad es hasta t=5 s es la posición alcanzada en t=5 s
+* El área bajo la curva de velocidad:
 
 ```
-s = ½(15s-5s)*0.1m/s = 0.5m
+s = ½(9s-5s)*0.15m/s = 0.45m
 
 ```
   
