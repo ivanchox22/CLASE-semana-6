@@ -127,7 +127,7 @@ Este tipo de perfil es bastante común en sistemas de control de motores paso a 
 ***Fig 4. Grafica de perfil trapezoidal***
 
 ---
-***EJEMPLO 3***
+💡***EJEMPLO 3***
 * El eje x de un robot Gantry debe moverse 10 cm. La máxima aceleración permitida en este eje es 1 cm/s^2. Si se desea mover el eje a una velocidad máxima de 2 cm/s, cuanto tiempo tomará hacer este movimiento
 
 ![image](https://github.com/user-attachments/assets/d0a860f7-c048-40b7-97bb-086e54114acb)
@@ -172,10 +172,10 @@ En muchas aplicaciones modernas, los sistemas requieren desplazamientos que no p
 
 Este tipo de movimiento es ampliamente utilizado en maquinaria CNC, robots industriales, impresoras 3D y sistemas de automatización avanzada.
 
-# 6. EJEMPLOS ADICIONALES
+# 6. Ejercicios
 
 ---
-***EJEMPLO***
+***Ejercicio 1***
 
 * Encuentre a posicion y la aceleraciòn en t= 6s
 
@@ -198,7 +198,7 @@ s = 36in/s
 ---
 
 ---
-***EJEMPLO 2***
+***Ejercicio 2***
 
 * Un eje está viajando a una velocidad de 15 cm/s. En t=3 s empieza a disminuir la velocidad como se ve en el perfil.
 \
@@ -231,3 +231,19 @@ A lo largo del estudio realizado, se evidenció que el dominio de conceptos como
 Por otra parte, la simulación mediante herramientas como Simscape proporciona un entorno seguro, versátil y altamente visual para experimentar con diferentes configuraciones de movimiento, facilitando la identificación de errores, la optimización de trayectorias y la toma de decisiones de diseño. Esta capacidad de previsualización aporta un valor significativo al proceso de ingeniería, al reducir tiempos de prueba y aumentar la confianza en los resultados obtenidos.
 
 Finalmente, este conocimiento no solo fortalece la formación académica, sino que habilita al estudiante para enfrentar retos del mundo real, desde la programación de trayectorias en robots industriales hasta el desarrollo de sistemas de automatización de alta precisión. Comprender y dominar los perfiles de movimiento es, en esencia, dar un paso firme hacia la innovación tecnológica con base en principios científicos y herramientas digitales de vanguardia.
+
+# 8. Referencias
+
+### Referencias
+
+1. Groover, M. P. (2016). *Automation, Production Systems, and Computer-Integrated Manufacturing* (4th ed.). Pearson Education.  
+   [ISBN: 9780133499612]
+
+2. Craig, J. J. (2005). *Introduction to Robotics: Mechanics and Control* (3rd ed.). Pearson Prentice Hall.  
+   [ISBN: 9780201543612]
+
+3. Bolton, W. (2015). *Mechatronics: Electronic Control Systems in Mechanical and Electrical Engineering* (6th ed.). Pearson Education.  
+   [ISBN: 9781292076683]
+
+4. Zatsiorsky, V. M. (1998). *Kinetics of Human Motion*. Human Kinetics.  
+   [ISBN: 9780880116761]
