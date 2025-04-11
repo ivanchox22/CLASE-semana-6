@@ -54,7 +54,7 @@ s = s₀ + ½(t - t₀)(v₀ + a(t - t₀))
 Aquí, \( t₀ \) representa el tiempo inicial, \( v₀ \) la velocidad inicial y \( s₀ \) la posición inicial del sistema. Estas expresiones permiten calcular la velocidad final y la posición final de un objeto en función del tiempo y la aceleración, y son ampliamente utilizadas tanto en simulaciones como en cálculos manuales.
 
 ---
-***EJEMPLO***
+💡 ***EJEMPLO 1***
 
 * Encuentre a posicion y la aceleraciòn en t= 5s, para esto tener en cuenta la figura 2.
 
@@ -81,7 +81,7 @@ s = 25in/s
 ---
 
 ---
-***EJEMPLO 2***
+💡***EJEMPLO 2***
 
 * Un eje está viajando a una velocidad de 10 cm/s. En t=5 s empieza a disminuir la velocidad como se ve en el perfil. Cual es la posición del eje cuando se detiene? Asuma que empieza a desacelerar a 25 cm
 
